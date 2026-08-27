@@ -3,8 +3,12 @@ schema: stackline-package-project-memory-v1
 project: 14
 package: update-section
 target: "@stackline/update-section"
-state: BUILDING
+state: PUBLISHED
 decision: GO
+registry_scope: verdaccio-and-public-npm
+public_npm: true
+public_github: true
+docs_production: true
 last_updated: 2026-08-27
 ---
 
@@ -66,7 +70,56 @@ audits, signatures, registries, CI, and CodeQL must pass before publication.
 
 ## Mutable release evidence
 
-The project remains `BUILDING`. Populate the exact source/tag commit, artifact
-hashes and integrity, inventory, SBOM, registry metadata, CI and CodeQL runs,
-GitHub release, production documentation, and clean-install results only after
-independent external verification.
+At the build checkpoint the project remained `BUILDING`; exact source, artifact,
+registry, GitHub, and production facts were intentionally withheld until the
+independent external verification recorded below.
+
+### Production release — 2026-08-27T20:09:21Z
+
+- Release-source and tag commit:
+  `4fe1d42411853006fe7f5b37226c6d1f4c9ce813`; tag:
+  `stackline-v1.0.0`.
+- CI run 33110330855 and CodeQL run 33110330905 passed. The CI matrix includes
+  Node 12, 14, 16, 18, 20, 22, and 24 CJS plus ESM execution, TypeScript 3.9,
+  current package/type analysis, and Linux, macOS, and Windows marker tests.
+- The complete local gate passed: six licensed upstream cases, 2,000 ordinary
+  differential cases plus six falsey cases, issue and active-consumer
+  regressions, callback and malformed boundaries, 200,000-line input and a
+  120,003-line replacement section, browser execution, types, 100% statement,
+  line, and function coverage with 96% branches, packed consumers, `publint`,
+  Are the Types Wrong, docs, zero-finding production/full audits, and 174
+  verified development-graph signatures.
+- Immutable artifact: 5,062 packed bytes, 14,177 unpacked bytes, 16 files;
+  SHA-1: `0bcad9e40ae080e9c09f2e871e8dc126174aeb98`; SHA-256:
+  `efc576f7fc592a61e3e640d5cb3638c4f5f98311256c87dd74e630a3ae257748`;
+  npm integrity:
+  `sha512-nsErghpDCEpXhk9iwXaIniH5EUelN0zYGOrsIAAKvii/x3LdcLAWT4DcPNbuDiTTRw6Ts46geC3KVtK7t7SZLg==`.
+  The inventory, checksum files, and one-component CycloneDX SBOM are recorded
+  with the tarball.
+- Verdaccio and official npm expose byte-identical downloads with the recorded
+  SHA-1, SHA-256, SHA-512, integrity, and registry metadata. Clean direct
+  scoped and `update-section@npm:@stackline/update-section` alias consumers,
+  the historical deep entry, CommonJS, ESM, production audit, and installed
+  package signature checks pass. Exact packed consumers also pass CJS and ESM
+  under every tested Node major from 12 through 24.
+- Official npm initially rejected noninteractive publication with `EOTP`
+  before any write. The version was rechecked absent; an interactive npm 11
+  step-up through the existing authenticated local browser then published the
+  exact artifact once. Neither registry version was republished.
+- The immutable GitHub release at
+  https://github.com/alexandroit/stackline-update-section/releases/tag/stackline-v1.0.0
+  resolves to the release-source commit and carries eight exact assets. Every
+  downloaded asset byte-matches its local release file.
+- The production package documentation, real bundle workbench, catalog card,
+  search and selector data, robots policies, canonical and
+  `SoftwareSourceCode` metadata, six package routes, and six entries in each
+  aggregate sitemap pass through Cloudflare. Valid replacement and missing-end
+  behavior, copy actions, dynamic npm metadata, and desktop/mobile layouts
+  pass browser verification.
+- Catalog source commit:
+  `5fe85c167b86b11ad95c7b540a809433a247930f`; catalog CI run 33111748657 and
+  CodeQL run 33111748233 pass. Production was backed up at
+  `/var/backups/stackline-docs/20260827T200249Z-update-section` before
+  deployment.
+- Final disposition: GO / `PUBLISHED` and validated on Verdaccio, official
+  npm, GitHub, and production documentation.

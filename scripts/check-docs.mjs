@@ -36,6 +36,8 @@ assert(html.includes('SoftwareSourceCode'), 'structured software metadata is mis
 assert(html.includes('index,follow'), 'indexable robots metadata is missing')
 assert(html.includes('Section-replacement workbench'), 'section-replacement workbench is missing')
 assert(html.includes('real ESM entry'), 'real-bundle disclosure is missing')
+assert(html.includes('The published release passed'), 'published release proof is stale')
+assert(!/publication remains gated|after publication/i.test(html), 'pre-publication language remains in production docs')
 assert(app.includes("import updateSection from './update-section-browser.js'"), 'workbench does not import the browser bundle')
 assert(app.includes('updateSection('), 'workbench does not invoke the real updater')
 assert(app.includes('updateSection.parse('), 'workbench does not invoke the real parser')

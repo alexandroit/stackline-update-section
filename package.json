@@ -1,0 +1,151 @@
+{
+  "name": "@stackline/update-section",
+  "version": "1.0.0",
+  "description": "Compatibility-first text section replacement with corrected marker metadata and first-party types",
+  "type": "commonjs",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./index.d.mts",
+        "require": "./index.d.cts",
+        "default": "./index.d.ts"
+      },
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.js"
+    },
+    "./index": {
+      "types": {
+        "import": "./index.d.mts",
+        "require": "./index.d.cts",
+        "default": "./index.d.ts"
+      },
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.js"
+    },
+    "./index.js": {
+      "types": {
+        "import": "./index.d.mts",
+        "require": "./index.d.cts",
+        "default": "./index.d.ts"
+      },
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "default": "./index.js"
+    },
+    "./update-section": {
+      "types": {
+        "import": "./index.d.mts",
+        "require": "./index.d.cts",
+        "default": "./index.d.ts"
+      },
+      "import": "./index.mjs",
+      "require": "./update-section.js",
+      "default": "./update-section.js"
+    },
+    "./update-section.js": {
+      "types": {
+        "import": "./index.d.mts",
+        "require": "./index.d.cts",
+        "default": "./index.d.ts"
+      },
+      "import": "./index.mjs",
+      "require": "./update-section.js",
+      "default": "./update-section.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "files": [
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "index.d.cts",
+    "index.d.mts",
+    "update-section.js",
+    "update-section.d.ts",
+    "examples",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "SECURITY.md",
+    "THIRD_PARTY_LICENSES.md"
+  ],
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "node scripts/build.mjs",
+    "lint": "eslint index.js index.mjs update-section.js scripts test examples docs-site",
+    "test:upstream": "node --test test/upstream.test.js",
+    "test:differential": "node test/differential.js",
+    "test:issues": "node --test test/issues.test.js",
+    "test:markers": "node --test test/markers.test.js",
+    "test:callbacks": "node --test test/callbacks.test.js",
+    "test:malformed": "node --test test/malformed.test.js",
+    "test:large": "node --test test/large-input.test.js",
+    "test:browser": "node test/browser.mjs",
+    "test:esm": "node test/esm.mjs",
+    "test:types": "node node_modules/typescript-3-9/bin/tsc -p test/types/tsconfig.legacy.json && node node_modules/typescript/bin/tsc -p test/types/tsconfig.commonjs.json && node node_modules/typescript/bin/tsc -p test/types/tsconfig.modern.json",
+    "test:runtime": "node test/runtime-compat.js",
+    "test": "npm run test:upstream && npm run test:differential && npm run test:issues && npm run test:markers && npm run test:callbacks && npm run test:malformed && npm run test:large && npm run test:browser && npm run test:esm && npm run test:types && npm run test:runtime",
+    "test:coverage": "c8 --all --include=index.js --include=update-section.js --check-coverage --lines 100 --functions 100 --branches 95 node --test test/upstream.test.js test/issues.test.js test/markers.test.js test/callbacks.test.js test/malformed.test.js test/large-input.test.js",
+    "test:smoke": "node scripts/smoke-install.mjs",
+    "test:registry": "node scripts/smoke-registry.mjs",
+    "test:docs": "npm run docs:build && npm run docs:check",
+    "check:package": "publint && attw --pack .",
+    "pack:check": "npm pack --dry-run",
+    "audit:dependencies": "npm audit --omit=dev --audit-level=low",
+    "audit:all": "npm audit --audit-level=low",
+    "audit:signatures": "npm audit signatures",
+    "docs:build": "npm run build && node scripts/build-docs.mjs",
+    "docs:check": "node scripts/check-docs.mjs",
+    "docs:serve": "node scripts/serve-docs.mjs",
+    "verify": "npm run clean && npm run lint && npm run build && npm test && npm run test:coverage && npm run test:smoke && npm run check:package && npm run pack:check && npm run test:docs && npm run audit:dependencies && npm run audit:all && npm run audit:signatures",
+    "prepack": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandroit/stackline-update-section.git"
+  },
+  "homepage": "https://alexandro.net/docs/vanilla/update-section/",
+  "bugs": {
+    "url": "https://github.com/alexandroit/stackline-update-section/issues"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@eslint/js": "10.0.1",
+    "c8": "12.0.0",
+    "esbuild": "0.28.2",
+    "eslint": "10.9.1",
+    "publint": "0.3.24",
+    "typescript": "7.0.2",
+    "typescript-3-9": "npm:typescript@3.9.10",
+    "update-section-baseline": "npm:update-section@0.3.3"
+  },
+  "keywords": [
+    "marker",
+    "readme",
+    "replace",
+    "section",
+    "text",
+    "typescript",
+    "update",
+    "zero-dependency",
+    "stackline"
+  ],
+  "author": "Stackline Maintainers",
+  "contributors": [
+    "Thorsten Lorenz"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

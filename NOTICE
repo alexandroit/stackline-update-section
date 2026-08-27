@@ -1,0 +1,11 @@
+@stackline/update-section is an independent maintained continuation of
+update-section. It is not affiliated with or endorsed by Thorsten Lorenz or
+the upstream project.
+
+Derived source and behavior retain the upstream notice:
+
+Copyright 2013 Thorsten Lorenz.
+All rights reserved.
+
+See LICENSE for the complete MIT license and THIRD_PARTY_LICENSES.md for
+provenance.

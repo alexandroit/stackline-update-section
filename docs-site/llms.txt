@@ -1,0 +1,14 @@
+# @stackline/update-section
+
+Install: `npm install @stackline/update-section`
+Drop-in alias: `npm install update-section@npm:@stackline/update-section`
+Current release: `{{PACKAGE_VERSION}}`
+Repository: https://github.com/alexandroit/stackline-update-section
+Documentation: https://alexandro.net/docs/vanilla/update-section/
+
+Compatibility-first continuation of `update-section@0.3.3`. The callable
+CommonJS API and enumerable `.parse` property are preserved. Corrections make
+`endIdx` consistently inclusive, make `hasEnd` reflect a real match, ignore
+end markers before the selected start, and support large replacement sections.
+The package has no runtime dependencies. Node 12-24, TypeScript 3.9 and current,
+ESM facade, and browser bundlers are supported.

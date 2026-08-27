@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@stackline/update-section - marker-delimited section replacement</title>
+  <meta name="description" content="Compatibility-first marker-delimited text replacement with corrected parse metadata, first-party types, and zero runtime dependencies.">
+  <meta name="keywords" content="update-section, generated documentation, markers, text replacement, JavaScript, TypeScript">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#6842a8">
+  <link rel="canonical" href="https://alexandro.net/docs/vanilla/update-section/">
+  <link rel="stylesheet" href="./styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="@stackline/update-section">
+  <meta property="og:description" content="Replace a marker-delimited section while preserving the established update-section contract.">
+  <meta property="og:url" content="https://alexandro.net/docs/vanilla/update-section/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="@stackline/update-section">
+  <meta name="twitter:description" content="Compatibility-first section replacement with truthful marker metadata.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "@stackline/update-section",
+    "version": "{{PACKAGE_VERSION}}",
+    "description": "Compatibility-first marker-delimited text section replacement.",
+    "codeRepository": "https://github.com/alexandroit/stackline-update-section",
+    "downloadUrl": "https://www.npmjs.com/package/@stackline/update-section",
+    "license": "https://github.com/alexandroit/stackline-update-section/blob/main/LICENSE",
+    "programmingLanguage": "JavaScript",
+    "runtimePlatform": "Node.js 12-24 and browser bundlers",
+    "url": "https://alexandro.net/docs/vanilla/update-section/"
+  }
+  </script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#workbench">Skip to section-replacement workbench</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="@stackline/update-section home">
+      <span class="brand-mark" aria-hidden="true">U</span>
+      <span>@stackline/update-section</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#workbench">Workbench</a>
+      <a href="#api">API</a>
+      <a href="#corrections">Corrections</a>
+      <a href="#proof">Verification</a>
+      <a href="#migration">Migration</a>
+      <a href="https://github.com/alexandroit/stackline-update-section">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product-intro update-section-hero" aria-labelledby="page-title">
+      <div class="intro-content">
+        <p class="eyebrow">Line-oriented generated content</p>
+        <h1 id="page-title">@stackline/<wbr>update-section</h1>
+        <p>Replace the first marker-delimited range, append or prepend a missing section, and inspect inclusive marker metadata through the familiar synchronous API.</p>
+        <div class="install-row">
+          <code id="install-command">npm install @stackline/update-section</code>
+          <button class="compact-button" type="button" data-copy="#install-command">Copy</button>
+        </div>
+        <div class="release-line" aria-label="Release facts">
+          <span>v{{PACKAGE_VERSION}}</span><span>Node 12-24</span><span>TypeScript 3.9+</span><span>Zero runtime dependencies</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-band" id="workbench" aria-labelledby="workbench-title">
+      <div class="section-inner wide">
+        <div class="section-heading">
+          <div><p class="eyebrow dark">Real package execution</p><h2 id="workbench-title">Section-replacement workbench</h2></div>
+          <button type="button" class="text-button" id="reset-button">Reset</button>
+        </div>
+        <p class="workbench-note">The documentation build bundles the package's real ESM entry. Every edit below calls that bundle; this is not a reimplementation of its marker algorithm.</p>
+        <div class="control-bar marker-controls">
+          <label><span>Start marker text</span><input id="start-marker" value="&lt;!-- START generated --&gt;"></label>
+          <label><span>End marker text</span><input id="end-marker" value="&lt;!-- END generated --&gt;"></label>
+          <label><span>When start is absent</span><select id="placement"><option value="append">Append</option><option value="top">Prepend</option></select></label>
+          <button class="primary-button" type="button" id="replace-button">Replace section</button>
+        </div>
+        <div class="workspace-grid">
+          <article class="editor-panel">
+            <header><h3><label for="original-content">Original content</label></h3><span>LF-delimited text</span></header>
+            <textarea id="original-content" spellcheck="false"># Project
+
+<!-- START generated -->
+old content
+<!-- END generated -->
+
+Keep this paragraph.</textarea>
+          </article>
+          <article class="editor-panel">
+            <header><h3><label for="replacement-section">Replacement section</label></h3><span>Markers included by caller</span></header>
+            <textarea id="replacement-section" spellcheck="false"><!-- START generated -->
+new content
+<!-- END generated --></textarea>
+          </article>
+        </div>
+        <div class="result-grid">
+          <article class="output-panel">
+            <header><h3>Updated content</h3><button class="compact-button" type="button" data-copy="#updated-output">Copy output</button></header>
+            <pre><code id="updated-output"></code></pre>
+          </article>
+          <article class="output-panel metadata-panel">
+            <header><h3><code>parse()</code> metadata</h3><span id="matcher-detail">Inclusive indexes</span></header>
+            <pre><code id="parse-output"></code></pre>
+          </article>
+        </div>
+        <div class="comparison-result" aria-live="polite">
+          <span class="status-indicator" id="status-indicator"></span>
+          <strong id="result-title">Ready</strong>
+          <span id="result-detail">The package bundle is loading.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band" id="api" aria-labelledby="api-title">
+      <div class="section-inner content-grid">
+        <div><p class="eyebrow dark">Small synchronous API</p><h2 id="api-title">Callable replacement plus parse metadata.</h2><p>Matchers receive each line, including a trailing carriage return when the input uses CRLF. Truthy results match and thrown values propagate.</p></div>
+        <div class="api-table-wrapper">
+          <table>
+            <thead><tr><th>API</th><th>Behavior</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><code>updateSection(content, section, start, end, top?)</code></td><td>Replace the first start-through-end range, or insert when no start exists.</td><td>Preserved</td></tr>
+              <tr><td><code>updateSection.parse(lines, start, end)</code></td><td>Return <code>hasStart</code>, <code>hasEnd</code>, and inclusive indexes.</td><td>Preserved and corrected</td></tr>
+              <tr><td><code>parse(...)</code></td><td>Named ESM export for the same function.</td><td>Additive</td></tr>
+              <tr><td><code>update-section.js</code></td><td>Historical CommonJS deep entry.</td><td>Preserved</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band muted" id="corrections" aria-labelledby="corrections-title">
+      <div class="section-inner content-grid">
+        <div><p class="eyebrow dark">Narrow compatibility corrections</p><h2 id="corrections-title">Metadata tells the truth.</h2><p>Normal upstream output remains unchanged. The maintained package corrects the documented parser defects and one scale failure.</p></div>
+        <ul class="contract-list">
+          <li><strong>Inclusive end index.</strong> <code>endIdx</code> always identifies the last replaced input line.</li>
+          <li><strong>Truthful end flag.</strong> <code>hasEnd</code> is true only when the end matcher succeeds.</li>
+          <li><strong>Ordered markers.</strong> End markers before the selected start are observed by callbacks but do not form crossed ranges.</li>
+          <li><strong>Large sections.</strong> Insertion avoids argument-count limits from <code>Function.apply</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-band" id="proof" aria-labelledby="proof-title">
+      <div class="section-inner proof-grid">
+        <div><p class="eyebrow dark">Release gate</p><h2 id="proof-title">Small code, explicit boundary matrix.</h2><p>Publication remains gated on upstream behavior, intentional differences, public entry points, clean consumers, packaging, audits, and documentation.</p></div>
+        <dl class="proof-list">
+          <div><dt>7</dt><dd>Node major lines from 12 through 24</dd></div>
+          <div><dt>3</dt><dd>operating systems in CI</dd></div>
+          <div><dt>0</dt><dd>runtime, optional, and peer dependencies</dd></div>
+          <div><dt>2</dt><dd>TypeScript generations checked</dd></div>
+          <div><dt>LF/CRLF</dt><dd>line values and separator behavior characterized</dd></div>
+          <div><dt>Browser</dt><dd>real bundle exercised by tests and this workbench</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="resource-band" id="migration" aria-labelledby="migration-title">
+      <div class="section-inner resource-grid">
+        <div><p class="eyebrow">Drop-in adoption</p><h2 id="migration-title">Keep the historical package key.</h2><p>An npm alias lets existing <code>require('update-section')</code> calls resolve to the scoped package after publication.</p></div>
+        <div class="code-surface">
+          <pre id="alias-command"><code>npm install update-section@npm:@stackline/update-section</code></pre>
+          <button class="compact-button" type="button" data-copy="#alias-command">Copy alias command</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-band" aria-labelledby="resources-title">
+      <div class="section-inner resource-grid">
+        <div><p class="eyebrow dark">Project resources</p><h2 id="resources-title">Inspect the contract and evidence.</h2></div>
+        <nav aria-label="Project resources">
+          <a href="https://www.npmjs.com/package/@stackline/update-section">npm</a>
+          <a href="https://github.com/alexandroit/stackline-update-section">GitHub</a>
+          <a href="./guides/migration.md">Migration</a>
+          <a href="./guides/compatibility.md">Compatibility</a>
+          <a href="./guides/third-party-licenses.md">Attribution</a>
+          <a href="https://github.com/alexandroit/stackline-update-section/blob/main/LICENSE">MIT license</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>@stackline/update-section</strong><span>Independent compatibility-first continuation of update-section.</span></div>
+    <nav aria-label="Footer navigation"><a href="#top">Top</a><a href="./llms.txt">LLM summary</a><a href="./sitemap.xml">Sitemap</a></nav>
+  </footer>
+  <script type="module" src="./app.js"></script>
+  <script src="./analytics.js" defer></script>
+</body>
+</html>

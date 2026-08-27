@@ -1,0 +1,41 @@
+# @stackline/update-section full reference
+
+`@stackline/update-section@{{PACKAGE_VERSION}}` is an independent,
+compatibility-first continuation of `update-section@0.3.3` under the MIT
+license. Consult `REGISTRY_HANDOFF.md` for current publication status.
+
+## API
+
+- `updateSection(content, section, matchesStart, matchesEnd, top?)` replaces
+  the first start marker through the first later end marker, both inclusive.
+- A start without a later end replaces through EOF. With no start, the section
+  is appended using two LF separators; truthy `top` prepends it instead.
+- Falsey content returns the section without calling either matcher.
+- Input is split and rejoined on LF. CRLF therefore passes trailing CR to
+  matchers and preserves it on untouched lines.
+- `updateSection.parse(lines, matchesStart, matchesEnd)` returns `hasStart`,
+  `hasEnd`, `startIdx`, and inclusive `endIdx`.
+- CommonJS exposes enumerable `.parse`; ESM exposes default, `updateSection`,
+  and `parse`. The historical `update-section.js` entry remains available.
+
+## Intentional corrections
+
+The maintained parser makes `endIdx` consistently inclusive, reports `hasEnd`
+only for a real end match, and ignores end markers before the selected start.
+Callback observability is preserved. Replacement avoids upstream's
+argument-count failure for large generated sections. Other normal output and
+error behavior remain compatible.
+
+## Verification target
+
+The release gate includes licensed upstream cases, deterministic differential
+tests, issues #1 and #2, crossed and missing markers, callback order and arity,
+falsey and malformed values, LF/CRLF, large content, browser bundling, CommonJS,
+ESM, TypeScript 3.9/current, Node 12-24, Linux/macOS/Windows, package analysis,
+clean packed consumers, coverage, dependency audits, signatures, and docs.
+Runtime, optional, and peer dependency counts are all zero.
+
+Install: `npm install @stackline/update-section`
+Alias: `npm install update-section@npm:@stackline/update-section`
+Repository: https://github.com/alexandroit/stackline-update-section
+Security: https://github.com/alexandroit/stackline-update-section/security/policy

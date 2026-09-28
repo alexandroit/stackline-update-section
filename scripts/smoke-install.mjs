@@ -111,7 +111,7 @@ try {
 
   const manifest = JSON.parse(await readFile(path.join(installedRoot, 'package.json'), 'utf8'))
   assert.equal(manifest.name, '@stackline/update-section')
-  assert.equal(manifest.version, '1.0.0')
+  assert.equal(manifest.version, '1.0.1')
   assert.equal(manifest.dependencies, undefined)
   assert.equal(manifest.optionalDependencies, undefined)
   assert.equal(manifest.peerDependencies, undefined)

@@ -1,6 +1,6 @@
 {
   "name": "@stackline/update-section",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Compatibility-first text section replacement with corrected marker metadata and first-party types",
   "type": "commonjs",
   "main": "./index.js",
@@ -127,15 +127,18 @@
     "update-section-baseline": "npm:update-section@0.3.3"
   },
   "keywords": [
+    "stackline",
+    "npm-package",
+    "update-section",
+    "typescript",
+    "nodejs",
     "marker",
     "readme",
     "replace",
     "section",
     "text",
-    "typescript",
     "update",
     "zero-dependency",
-    "stackline",
     "generated-content",
     "text-processing",
     "markers"

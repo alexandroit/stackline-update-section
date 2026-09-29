@@ -1,6 +1,6 @@
 {
   "name": "@stackline/update-section",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Compatibility-first text section replacement with corrected marker metadata and first-party types",
   "type": "commonjs",
   "main": "./index.js",

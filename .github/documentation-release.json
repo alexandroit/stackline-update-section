@@ -1,0 +1,33 @@
+{
+  "repository": "alexandroit/stackline-update-section",
+  "packages": [
+    {
+      "name": "@stackline/update-section",
+      "path": "README.md",
+      "version": "1.0.2",
+      "baselineVersion": "1.0.1",
+      "keywords": [
+        "stackline",
+        "npm-package",
+        "update-section",
+        "typescript",
+        "nodejs",
+        "marker",
+        "readme",
+        "replace",
+        "section",
+        "text",
+        "update",
+        "zero-dependency",
+        "generated-content",
+        "text-processing",
+        "markers"
+      ],
+      "homepage": "https://alexandro.net/docs/vanilla/update-section/",
+      "baselineTarball": "https://registry.npmjs.org/@stackline/update-section/-/update-section-1.0.1.tgz",
+      "baselineIntegrity": "sha512-eENVH3LLEr0/iN57votiy0Y+YdcLQ6S0u0AWAdx/747QDu8QWI07KA47AvJwvOYQCvEI6R0fQ9YKUGXQMQskzQ==",
+      "expectedSha512": "500f5f6d80127270c583f3435fbead04279e9ddac8992123cd0816f9dba3d25977a2b39954f821d16c9c8b44e97c1eafe400a59d2046b39caae73c0b0404e526",
+      "tag": "docs-stackline-update-section-v1.0.2"
+    }
+  ]
+}

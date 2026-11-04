@@ -10,7 +10,7 @@
 
 **[Documentation](https://alexandro.net/docs/vanilla/update-section/)** | **[npm](https://www.npmjs.com/package/@stackline/update-section)** | **[Issues](https://github.com/alexandroit/stackline-update-section/issues)** | **[Repository](https://github.com/alexandroit/stackline-update-section)**
 
-**Current package version:** `1.0.3`
+**Current package version:** `1.0.4`
 
 ---
 
@@ -24,7 +24,7 @@ CommonJS and ESM, and includes first-party TypeScript declarations.
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/update-section@1.0.3` |
+| Package | `@stackline/update-section@1.0.4` |
 | Node.js runtime | `>=12` |
 | CommonJS / primary entry | `./index.js` |
 | ES module entry | `./index.mjs` |

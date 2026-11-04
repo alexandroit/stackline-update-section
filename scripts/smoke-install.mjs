@@ -6,6 +6,7 @@ import os from 'node:os'
 import path from 'node:path'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
+const expectedManifest = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'))
 const temporary = await mkdtemp(path.join(os.tmpdir(), 'stackline-update-section-pack-'))
 let tarball
 
@@ -111,7 +112,7 @@ try {
 
   const manifest = JSON.parse(await readFile(path.join(installedRoot, 'package.json'), 'utf8'))
   assert.equal(manifest.name, '@stackline/update-section')
-  assert.equal(manifest.version, '1.0.1')
+  assert.equal(manifest.version, expectedManifest.version)
   assert.equal(manifest.dependencies, undefined)
   assert.equal(manifest.optionalDependencies, undefined)
   assert.equal(manifest.peerDependencies, undefined)
